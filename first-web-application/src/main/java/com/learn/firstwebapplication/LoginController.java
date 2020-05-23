@@ -8,8 +8,8 @@ package com.learn.firstwebapplication;
 public class LoginController {
 
   @RequestMapping("/login")
-  @ResponseBody
+  //@ResponseBody
   public String loginMessage(){
-    return "Hello World";
+    return "login";
   }
 }
