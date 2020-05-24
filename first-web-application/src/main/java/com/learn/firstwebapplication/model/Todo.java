@@ -1,14 +1,14 @@
 package com.learn.firstwebapplication.model;
 
 import java.util.Date;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 
 public class Todo {
   private int id;
   private String user;
 
-  @Size(min=10, message="Enter at least 10 Characters...")
+  @Size(max=1, message="Enter at least 10 Characters...")
   private String desc;
 
 
