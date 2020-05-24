@@ -1,4 +1,4 @@
-package com.learn.firstwebapplication;
+package com.learn.firstwebapplication.service;
 
 import org.springframework.stereotype.Component;
 
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class LoginService {
 
   public boolean validateUser(String userId, String password){
-    return userId.equalsIgnoreCase("abc") &&
-      password.equalsIgnoreCase("abc");
+    return userId.equalsIgnoreCase("abc2") &&
+      password.equalsIgnoreCase("abc2");
   }
 }
