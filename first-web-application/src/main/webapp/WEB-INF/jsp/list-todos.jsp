@@ -1,13 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<html>
-<heat>
-  <title>Todo's for ${name}</title>
-  <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
-        rel="stylesheet">
-</heat>
-
-<body>
+<%@include file="common/header.jspf" %>
+<%@include file="common/navigation.jspf"%>
 <div class="container">
   <h1>Your Todos</h1>
   <table class="table table-striped">
@@ -42,5 +34,4 @@
   <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </div>
 
-</body>
-</html>
+<%@include file="common/footer.jspf"%>
