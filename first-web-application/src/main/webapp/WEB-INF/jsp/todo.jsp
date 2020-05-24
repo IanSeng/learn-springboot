@@ -1,3 +1,5 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="input" uri="http://www.springframework.org/tags/form" %>
 <html>
 <heat>
   <title>First Web Application</title>
@@ -8,13 +10,14 @@
 <body>
 <div class="container">
   Add Todo Page for ${name}
-  <form method="post">
+  <form:form method="post" modelAttribute="todo">
     <fieldset class="form-group">
-      <label>Description</label>
-      <input class="form-control" name="desc" type="text" required="required"/>
+      <form:label path="desc">Description</form:label>
+      <input:input path="desc" class="form-control" name="desc" type="text" required="required"/>
+      <form:errors path="desc" cssClass="text-warning"/>
     </fieldset>
     <button class="btn btn-success" type="submit">Add</button>
-  </form>
+  </form:form>
 </div>
 
 <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
