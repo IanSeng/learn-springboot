@@ -2,6 +2,8 @@ package com.learn.firstwebapplication.controller;
 
   import com.learn.firstwebapplication.service.LoginService;
   import org.springframework.beans.factory.annotation.Autowired;
+  import org.springframework.security.core.context.SecurityContextHolder;
+  import org.springframework.security.core.userdetails.UserDetails;
   import org.springframework.stereotype.Controller;
   import org.springframework.ui.ModelMap;
   import org.springframework.web.bind.annotation.*;
@@ -10,26 +12,21 @@ package com.learn.firstwebapplication.controller;
 @SessionAttributes("name")
 public class LoginController {
 
-  @Autowired
-  LoginService service;
+//  @Autowired
+//  LoginService service;
 
-  //@ResponseBody
-  @RequestMapping(value = "/login", method = RequestMethod.GET)
-  public String showLoginPage(ModelMap model){
-    //model.put("name", name);
-    // System.out.println(name);
-    // Model
-    return "login";
+  @RequestMapping(value = "/", method = RequestMethod.GET)
+  public String showWelcomePage(ModelMap model) {
+    model.put("name", "abc");
+    return "welcome";
   }
 
-  @RequestMapping(value = "/login", method = RequestMethod.POST)
-  public String showWelcomePage(@RequestParam String name, @RequestParam String password, ModelMap model){
-    if (!service.validateUser(name, password)){
-      model.put("errorMessage", "Invalid Credential");
-      return "login";
+  private String getLoggedinUsername(){
+    Object principal =
+      SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    if(principal instanceof UserDetails){
+      ((UserDetails)principal).getUsername();
     }
-    model.put("name", name);
-    model.put("password", password);
-    return "welcome";
+    return principal.toString();
   }
 }
