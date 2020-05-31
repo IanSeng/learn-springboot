@@ -2,6 +2,7 @@ package com.example.services;
 
 import com.example.model.Question;
 import com.example.model.Survey;
+import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 public class SurveyService {
   private  static List<Survey> surveys = new ArrayList<>();
   static {
@@ -33,6 +35,10 @@ public class SurveyService {
     surveys.add(survey);
   }
 
+  public  List<Survey> retrieveAllSurveys() {
+    return surveys;
+  }
+
   public Survey retrieveSurvey(String surveyId){
     for (Survey survey: surveys) {
       if (survey.getId().equals(surveyId)) {
@@ -42,13 +48,21 @@ public class SurveyService {
     return null;
   }
 
+  public List<Question> retrieveQuestions(String surveyId) {
+    Survey survey = retrieveSurvey(surveyId);
+
+    if (survey == null) {
+      return null;
+    }
+    return survey.getQuestions();
+  }
   public Question retrieveQuestion(String surveyId, String questionId) {
     Survey survey = retrieveSurvey(surveyId);
 
     if (survey == null) return null;
 
     for (Question question: survey.getQuestions()) {
-      if (question.getId().equals(surveyId)) {
+      if (question.getId().equals(questionId)) {
         return question;
       }
     }
