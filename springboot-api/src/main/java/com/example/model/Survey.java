@@ -6,9 +6,9 @@ public class Survey {
   private String id;
   private String title;
   private String description;
-  private List<Questions> questions;
+  private List<Question> questions;
 
-  public Survey(String id, String title, String description, List<Questions> questions) {
+  public Survey(String id, String title, String description, List<Question> questions) {
     super();
     this.id = id;
     this.title = title;
@@ -40,11 +40,11 @@ public class Survey {
     this.description = description;
   }
 
-  public List<Questions> getQuestions() {
+  public List<Question> getQuestions() {
     return questions;
   }
 
-  public void setQuestions(List<Questions> questions) {
+  public void setQuestions(List<Question> questions) {
     this.questions = questions;
   }
 

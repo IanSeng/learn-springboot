@@ -3,13 +3,13 @@ package com.example.model;
 import java.util.List;
 import java.util.Objects;
 
-public class Questions {
+public class Question {
   private String id;
   private String description;
   private String correctAnswer;
   private List<String> options;
 
-  public Questions(String id, String description, String correctAnswer, List<String> options) {
+  public Question(String id, String description, String correctAnswer, List<String> options) {
     super ();
     this.id = id;
     this.description = description;
@@ -68,7 +68,7 @@ public class Questions {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    Questions questions = (Questions) o;
-    return id.equals(questions.id);
+    Question question = (Question) o;
+    return id.equals(question.id);
   }
 }
