@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-@ComponentScan("com.example")
+@ComponentScan({"com.example", "com.example.jpa"})
 public class SpringbootApiApplication {
 
 	public static void main(String[] args) {
